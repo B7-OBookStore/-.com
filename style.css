@@ -133,17 +133,17 @@ input[type=search] {
 }
 
 #right nav p a {
-    padding: 5px;
-    margin: 5px;
-    background-color: #ff6a00;
-    border-radius: 5px;
-    border: 1px solid #808080;
-    color: #FFFFFF;
-    text-decoration: none;
+	padding: 5px;
+	margin: 5px;
+	background-color: #ff6a00;
+	border-radius: 5px;
+	border: 1px solid #808080;
+	color: #FFFFFF;
+	text-decoration: none;
 }
 
 #right nav p a:hover {
-    background-color: #FFA500;
+	background-color: #FFA500;
 }
 
 #enter {
@@ -188,17 +188,17 @@ footer p {
 }
 
 @keyframes marquee {
-  from   { transform: translate(0%);}
+  from	 { transform: translate(0%);}
   99%,to { transform: translate(-100%);}
 }
 
 .blinking {
-    animation: 0.5s linear 0s alternate none infinite running blink;
+	animation: 0.5s linear 0s alternate none infinite running blink;
 }
 
 @keyframes blink {
-    0% { opacity: 0; }
-    19.9% { opacity: 0; }
-    20% { opacity: 1; }
-    100% { opacity: 1; }
+	0% { opacity: 0; }
+	19.9% { opacity: 0; }
+	20% { opacity: 1; }
+	100% { opacity: 1; }
 }

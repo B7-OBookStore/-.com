@@ -153,16 +153,16 @@ $body
 			<p><a href="index.html">トップ</a> -&gt; <a href="hatchu.php">発注</a> -&gt; <a href="hojuhatchu_kanryo.php">注文完了</a></p>
 			
 			<h2>注文完了</h2>
-            <p><?php
-                if (!$mail->send()) {
-                    echo "メール送信に失敗: " . $mail->ErrorInfo;
-                } else {
-                    echo "確認メールを送信しました。";
-                }
-            ?></p>
+			<p><?php
+				if (!$mail->send()) {
+					echo "メール送信に失敗: " . $mail->ErrorInfo;
+				} else {
+					echo "確認メールを送信しました。";
+				}
+			?></p>
 
 			<h3>注文内容</h3>
-            <table id="example">
+			<table id="example">
 				<?php
 					for ($i = 0; $i < count($isbn); $i++) {
 				?>
@@ -194,16 +194,16 @@ $body
 				?>
 			</table>
 
-            <h3>注意事項</h3>
-            <p>配送には1週間程度を要します。遠隔地・離島の店舗様の場合には2週間以上かかる場合もありますのでご了承ください。</p>
-            <p>配送と共に送り状を送付いたします。貴店舗様で照合の上、お受け取りください。</p>
+			<h3>注意事項</h3>
+			<p>配送には1週間程度を要します。遠隔地・離島の店舗様の場合には2週間以上かかる場合もありますのでご了承ください。</p>
+			<p>配送と共に送り状を送付いたします。貴店舗様で照合の上、お受け取りください。</p>
 
-            <h3>ログ</h3>
-            <p><?php
-                foreach ($mail as $name => $value) {
-                    echo "$name: $value<br>";
-                }
-             ?></p>
+			<h3>ログ</h3>
+			<p><?php
+				foreach ($mail as $name => $value) {
+					echo "$name: $value<br>";
+				}
+			 ?></p>
 		</div>
 		
 		<footer>

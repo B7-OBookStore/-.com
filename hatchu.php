@@ -103,26 +103,26 @@ $pdo = new PDO($dsn, $username, $password);
 					<th>ISBN</th>
 					<th>著者</th>
 				</tr>
-                <?php
-                    $reg_sql = "SELECT * FROM registeredbook WHERE ShopNumber = 0";
-                    $reg_stmt = $pdo->query($reg_sql);
+				<?php
+					$reg_sql = "SELECT * FROM registeredbook WHERE ShopNumber = 0";
+					$reg_stmt = $pdo->query($reg_sql);
  
-                    foreach ($reg_stmt as $row) {
-                        $bookNumber = $row['BookNumber'];
-                        $book_sql = "SELECT * FROM book WHERE BookNumber=$bookNumber";
-                        $book_stmt = $pdo->query($book_sql);
-                        $book = $book_stmt->fetch();
+					foreach ($reg_stmt as $row) {
+						$bookNumber = $row['BookNumber'];
+						$book_sql = "SELECT * FROM book WHERE BookNumber=$bookNumber";
+						$book_stmt = $pdo->query($book_sql);
+						$book = $book_stmt->fetch();
 
-                        echo '<tr>';
-                            echo "<td>$book[Title]</td>";
-                            echo "<td>$book[Publisher]</td>";
-                            echo "<td>$book[ISBN]</td>";
-                            echo "<td>$book[Author]</td>";
-                            echo '<td><a href="hojuhatchu.php">補充発注に追加</a></td>';
-                            echo '<td><a href="kyakutyu.html">客注に追加</a></td>';
-                        echo '</tr>';
-                    }
-                ?>
+						echo '<tr>';
+							echo "<td>$book[Title]</td>";
+							echo "<td>$book[Publisher]</td>";
+							echo "<td>$book[ISBN]</td>";
+							echo "<td>$book[Author]</td>";
+							echo '<td><a href="hojuhatchu.php">補充発注に追加</a></td>';
+							echo '<td><a href="kyakutyu.html">客注に追加</a></td>';
+						echo '</tr>';
+					}
+				?>
 			</table>
 		</div>
 		
