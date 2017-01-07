@@ -91,7 +91,7 @@
 			
 			<h3>入力欄</h3>
 			
-			<form action="chumonkanryo.php" method="post">
+			<form action="kyakuchu_kanryo.php" method="post">
 				<table>
 					<tr>
 						<th>お客様情報</th>
@@ -187,7 +187,7 @@
 		</div>
 		
 		<footer>
-			<p>Created by B7班 (株)今北産業, 7051-1076 福野将人</p>
+			<p>Created by B7班 (株)今北産業, 設定的には取引先</p>
 		</footer>
 	</div>
 </body>

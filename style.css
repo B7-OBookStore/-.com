@@ -88,6 +88,10 @@ input[type=submit] {
 	height: 40px;
 }
 
+input[type=button] {
+	margin-bottom: 10px;
+}
+
 input[type=search] {
 	height: 30px;
 	padding: 5px;

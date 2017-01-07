@@ -1,4 +1,17 @@
 <?php
+// データベースに接続
+$dsn = 'mysql:dbname=kyakuchuyaro;host=ja-cdbr-azure-east-a.cloudapp.net;charset=utf8';
+$username = 'b53c33466811d4';
+$password = '74c1d5e0';
+$pdo = new PDO($dsn, $username, $password);
+
+$sql = "SELECT * FROM shop WHERE ShopNumber = 0";
+$stmt = $pdo->query($sql);
+$shop = $stmt->fetch();
+$shopname = $shop[ShopName];
+$mailaddress = $shop[MailAddress];
+
+// 名前などの変数を受け取り
 $name = $_POST['name'];
 $kana = $_POST['kana'];
 $memo = $_POST['memo'];
@@ -8,6 +21,7 @@ $title = $_POST['title'];
 $author = $_POST['author'];
 $number = $_POST['number'];
 
+// メール送信
 require 'PHPMailer/PHPMailerAutoload.php';
 
 $mail = new PHPMailer;
@@ -24,19 +38,21 @@ $mail->CharSet = "UTF-8";
 $mail->Encoding = "base64";
 
 $mail->setFrom('order@kyakuchu-yaro.com', '客注野郎.com');
-$mail->addAddress('ia15076@s.inf.shizuoka.ac.jp', 'O書店');
+$mail->addAddress($mailaddress, 'O書店');
 
-$mail->Subject = '【客注野郎.com】注文完了のお知らせ';
+$mail->Subject = '【客注野郎.com】客注注文受付のお知らせ';
 $mail->Body =
-'O書店 様
+"$shopname 様
 
-注文を受け付けました。
+$name($kana)様の客注を受け付けました。
 
-出版社：'.$publisher.'
-ISBN：'.$isbn.'
-書名：'.$title.'
-著者：'.$author.'
-注文数：'.$number.'
+メモ・客注番号：$memo
+
+出版社：$publisher
+ISBN：$isbn
+書名：$title
+著者：$author
+注文数：$number
 
 配送には1週間程度を要します。遠隔地・離島の店舗様の場合には
 2週間以上かかる場合もありますのでご了承ください。
@@ -45,7 +61,7 @@ ISBN：'.$isbn.'
 
 ------------------------------------------------
 客注野郎.com
-〒123-4567 神奈川県第三新東京市芦ノ湖の底あたり'
+〒123-4567 神奈川県第三新東京市芦ノ湖の底あたり"
 ?>
 
 <!DOCTYPE html>
@@ -133,7 +149,7 @@ ISBN：'.$isbn.'
 		</div>
 		
 		<div id="right">
-			<p><a href="index.html">トップ</a> -&gt; <a href="hatchu.php">発注</a> -&gt; <a href="chumonkanryo.php">注文完了</a></p>
+			<p><a href="index.html">トップ</a> -&gt; <a href="hatchu.php">発注</a> -&gt; <a href="kyakuchu_kanryo.php">注文完了</a></p>
 			
 			<h2>注文完了</h2>
             <p><?php
@@ -205,7 +221,7 @@ ISBN：'.$isbn.'
 		</div>
 		
 		<footer>
-			<p>Created by B7班 (株)今北産業, 7051-1076 福野将人</p>
+			<p>Created by B7班 (株)今北産業, 設定的には取引先</p>
 		</footer>
 	</div>
 </body>
