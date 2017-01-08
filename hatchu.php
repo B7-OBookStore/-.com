@@ -119,7 +119,7 @@ $pdo = new PDO($dsn, $username, $password);
 							echo "<td>$book[ISBN]</td>";
 							echo "<td>$book[Author]</td>";
 							echo '<td><a href="hojuhatchu.php">補充発注に追加</a></td>';
-							echo '<td><a href="kyakutyu.html">客注に追加</a></td>';
+							echo '<td><a href="kyakutyu.php">客注に追加</a></td>';
 						echo '</tr>';
 					}
 				?>
